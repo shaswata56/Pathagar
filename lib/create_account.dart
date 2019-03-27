@@ -49,7 +49,7 @@ class _SignupPageState extends State<SignUpPage> {
       ),
     );
 
-    final confirm_password = TextFormField(
+    final confirmPassword = TextFormField(
       style: TextStyle(color: Colors.white),
       autofocus: false,
       initialValue: '',
@@ -104,7 +104,7 @@ class _SignupPageState extends State<SignUpPage> {
                 SizedBox(height: 8.0),
                 password,
                 SizedBox(height: 8.0),
-                confirm_password,
+                confirmPassword,
                 SizedBox(height: 24.0),
                 signupButton
               ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'home_page.dart';
 import 'create_account.dart';
+import 'feed.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,6 +11,7 @@ class MyApp extends StatelessWidget {
     LoginPage.tag: (context) => LoginPage(),
     SignUpPage.tag: (context) => SignUpPage(),
     HomePage.tag: (context) => HomePage(),
+    Feed.tag: (context) => Feed(),
   };
 
   @override

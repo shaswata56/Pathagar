@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Pathagar/home_page.dart';
+import 'package:Pathagar/feed.dart';
 import 'package:Pathagar/create_account.dart';
 
 class LoginPage extends StatefulWidget {
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed(HomePage.tag);
+          Navigator.of(context).pushNamed(Feed.tag);
         },
         padding: EdgeInsets.all(12),
         color: Colors.deepPurpleAccent,
