@@ -3,6 +3,7 @@ import 'login_page.dart';
 import 'home_page.dart';
 import 'create_account.dart';
 import 'feed.dart';
+import 'package:Pathagar/Forget_Password.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
     SignUpPage.tag: (context) => SignUpPage(),
     HomePage.tag: (context) => HomePage(),
     Feed.tag: (context) => Feed(),
+   Forgot_PassWord.tag: (context) => Forgot_PassWord(),
   };
 
   @override

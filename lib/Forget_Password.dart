@@ -1,16 +1,14 @@
-import 'package:Pathagar/create_account.dart';
-import 'package:Pathagar/Forget_Password.dart';
-import 'package:Pathagar/feed.dart';
 import 'package:flutter/material.dart';
+//import 'package:Pathagar/login_page.dart';
 
-
-class LoginPage extends StatefulWidget {
-  static String tag = 'login-page';
+// ignore: camel_case_types
+class Forgot_PassWord extends StatefulWidget {
+  static String tag = 'ForgotPassword-Page';
   @override
-  _LoginPageState createState() => new _LoginPageState();
+  _ForgotPasswordPageState createState() => new _ForgotPasswordPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _ForgotPasswordPageState extends State<Forgot_PassWord> {
   @override
   Widget build(BuildContext context) {
     final logo = Hero(
@@ -21,6 +19,15 @@ class _LoginPageState extends State<LoginPage> {
         child: Image.asset('assets/logo.png'),
       ),
     );
+
+    final code = Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Text(
+        '      Enter your email to reset password',
+        style: TextStyle(fontSize: 15.0, color: Colors.redAccent),
+      ),
+    );
+
 
     final email = TextFormField(
       style: TextStyle(color: Colors.white),
@@ -36,56 +43,26 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
-    final password = TextFormField(
-      style: TextStyle(color: Colors.white),
-      autofocus: false,
-      initialValue: '',
-      obscureText: true,
-      cursorColor: Colors.white,
-      decoration: InputDecoration(
-        hintText: 'Password',
-        hintStyle: TextStyle(color: Colors.white),
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(32.0),
-        ),
-      ),
-    );
-
-    final loginButton = Padding(
+    final Confirm= Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed(Feed.tag);
+
         },
         padding: EdgeInsets.all(12),
         color: Colors.deepPurpleAccent,
-        child: Text('Log In', style: TextStyle(color: Colors.white)),
+        child: Text('Confirm', style: TextStyle(color: Colors.white)),
       ),
     );
 
-    final createLabel = FlatButton(
-      child: Text(
-        'Create an Account?',
-        style: TextStyle(color: Colors.white),
-      ),
-      onPressed: () {
-        Navigator.of(context).pushNamed(SignUpPage.tag);
-      },
-    );
 
-    final forgotLabel = FlatButton(
-      child: Text(
-        'Forgot password?',
-        style: TextStyle(color: Colors.white),
-      ),
-      onPressed: () {
-        Navigator.of(context).pushNamed(Forgot_PassWord.tag);
-      },
-    );
+
+
+
+
 
     return Scaffold(
       body: new Stack(
@@ -106,13 +83,12 @@ class _LoginPageState extends State<LoginPage> {
               children: <Widget>[
                 logo,
                 SizedBox(height: 48.0),
+                code,
                 email,
                 SizedBox(height: 8.0),
-                password,
-                SizedBox(height: 24.0),
-                loginButton,
-                forgotLabel,
-                createLabel
+                Confirm,
+
+
               ],
             ),
           )
