@@ -74,7 +74,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         children: [
           new Search("Search Books"),
           new Profile("Profile"),
-          new Donate("Donate Books"),
+          new Donate(),
         ],
         onPageChanged: onPageChanged,
         controller: _pageController,
