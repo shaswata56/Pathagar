@@ -11,8 +11,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+
     final logo = Hero(
       tag: 'hero',
       child: CircleAvatar(
@@ -23,12 +25,19 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final email = TextFormField(
+
       style: TextStyle(color: Colors.white),
+    validator: (value) {
+      if (value.isEmpty) {
+        return 'Please enter some text';
+      }
+    },
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
       initialValue: '',
       cursorColor: Colors.white,
       decoration: InputDecoration(
+
         hintText: 'Email',
         hintStyle: TextStyle(color: Colors.white),
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -37,11 +46,19 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final password = TextFormField(
+
       style: TextStyle(color: Colors.white),
+
       autofocus: false,
       initialValue: '',
       obscureText: true,
       cursorColor: Colors.white,
+
+      validator: (value) {
+        if (value.isEmpty) {
+          return 'Please enter some text';
+        }
+      },
       decoration: InputDecoration(
         hintText: 'Password',
         hintStyle: TextStyle(color: Colors.white),
@@ -53,13 +70,16 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     final loginButton = Padding(
+
       padding: EdgeInsets.symmetric(vertical: 16.0),
       child: RaisedButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed(Feed.tag);
+    if (_formKey.currentState.validate()) {
+      Navigator.of(context).pushNamed(Feed.tag);
+    }
         },
         padding: EdgeInsets.all(12),
         color: Colors.deepPurpleAccent,
@@ -89,6 +109,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       body: new Stack(
+
         children: <Widget>[
           new Container(
             decoration: new BoxDecoration(
@@ -99,7 +120,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          new Center(
+          new Form(
+            key: _formKey,
+            child: new Center(
+
             child: new ListView(
               shrinkWrap: true,
               padding: EdgeInsets.only(left: 24.0, right: 24.0),
@@ -115,6 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                 createLabel
               ],
             ),
+                )
           )
         ],
       ),
